@@ -1,6 +1,7 @@
 package testWeatherService;
 
 import java.lang.Exception;
+import java.util.Scanner;
 
 import melbourneweather2.MelbourneWeather2Stub;
 import melbourneweather2.MelbourneWeather2Stub.*;
@@ -27,28 +28,43 @@ public class TestWeatherService {
 		
 		// Get the available locations from the web service
 		GetLocationsResponse LocationsResponse = MelbourneWeatherService.getLocations();
-		String[] Locations = LocationsResponse.get_return();
 		
-		// Loop over the locations, and display the temperature and rainfall at each
-		for (int i = 0; i < Locations.length; i++) {
-			// Get rainfall
-			GetRainfall RainfallRequest = new GetRainfall();
-			RainfallRequest.setLocation(Locations[i]);
-			GetRainfallResponse RainfallResponse = MelbourneWeatherService.getRainfall(RainfallRequest);
-			String[] Rainfall = RainfallResponse.get_return();
-			// Get temperature
-			GetTemperature TemperatureRequest = new GetTemperature();
-			TemperatureRequest.setLocation(Locations[i]);
-			GetTemperatureResponse TemperatureResponse = MelbourneWeatherService.getTemperature(TemperatureRequest);
-			String[] Temperature = TemperatureResponse.get_return();
-			System.out.print(
-				Locations[i]
-				+ " @ " + Rainfall[TimestampIndex]
+		Scanner input = new Scanner(System.in);  // Reading from System.in
+		
+		String[] Locations = LocationsResponse.get_return();
+		String[] Rainfall = new String[2];
+		String[] Rainfalls1 = new String[Locations.length];
+		String[] Rainfalls2 = new String[Locations.length];
+		String[] Temperature = new String[Locations.length];
+		int n;
+		
+		System.out.println("Enter a location number: [1-22], because we currently have 22 locations ");
+		n = input.nextInt();
+		GetRainfall RainfallRequest = new GetRainfall();
+		RainfallRequest.setLocation(Locations[n-1]);
+		GetRainfallResponse RainfallResponse = MelbourneWeatherService.getRainfall(RainfallRequest);
+		Rainfall = RainfallResponse.get_return();
+		Rainfalls1[n-1] = Rainfall[TimestampIndex];
+		Rainfalls2[n-1] = Rainfall[RainfallIndex];
+		GetTemperature TemperatureRequest = new GetTemperature();
+		TemperatureRequest.setLocation(Locations[n-1]);
+		GetTemperatureResponse TemperatureResponse = MelbourneWeatherService.getTemperature(TemperatureRequest);
+		Temperature = TemperatureResponse.get_return();
+		System.out.print(
+				Locations[n-1]
+				+ " @ " + Rainfalls1[n-1]
 				+ ":\n\tTemperature:\t" + Temperature[TemperatureIndex]
-				+ "\n\tRainfall:\t" + Rainfall[RainfallIndex]
+				+ "\n\tRainfall:\t" + Rainfalls2[n-1]
 				+ "\n\n"
 			);
-		}	
+
+		
+		
+		
+		
+		// Loop over the locations, and display the temperature and rainfall at each
+		
+		
 	}
 
 }
