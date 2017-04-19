@@ -2,6 +2,8 @@ package testWeatherService;
 
 import java.lang.Exception;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import melbourneweather2.MelbourneWeather2Stub;
 import melbourneweather2.MelbourneWeather2Stub.*;
@@ -15,12 +17,15 @@ import melbourneweather2.MelbourneWeather2Stub.*;
  * Last Modified: 20170405
  */		
 
-public class TestWeatherService {
+public class TestWeatherService extends Timer{
 
 	// set up some constants to index into the result arrays
 	private static final int TimestampIndex = 0;
 	private static final int RainfallIndex = 1;
+	private static String[] lol = new String[40];
 	private static final int TemperatureIndex = 1;
+	String[] output = new String[200];
+	
 	
 	public static void main(String[] args) throws Exception {
 
@@ -49,14 +54,21 @@ public class TestWeatherService {
 		GetTemperature TemperatureRequest = new GetTemperature();
 		TemperatureRequest.setLocation(Locations[n-1]);
 		GetTemperatureResponse TemperatureResponse = MelbourneWeatherService.getTemperature(TemperatureRequest);
-		Temperature = TemperatureResponse.get_return();
-		System.out.print(
-				Locations[n-1]
-				+ " @ " + Rainfalls1[n-1]
-				+ ":\n\tTemperature:\t" + Temperature[TemperatureIndex]
-				+ "\n\tRainfall:\t" + Rainfalls2[n-1]
-				+ "\n\n"
-			);
+		lol = TemperatureResponse.get_return();
+		Timer timer = new Timer();
+		//timer.schedule(run(Locations,n,Rainfalls2, Temperature, Rainfalls1), 0, 5000);
+		timer.schedule(new TimerTask() {
+		    public void run() {
+		       System.out.println(
+						Locations[n-1]
+								+ " @ " + Rainfalls1[n-1]
+								+ ":\n\tTemperature:\t" + lol[TemperatureIndex]
+								+ "\n\tRainfall:\t" + Rainfalls2[n-1]
+								+ "\n\n"
+							);
+		    }
+		}, 0, 300000);
+		
 
 		
 		
