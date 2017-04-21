@@ -3,20 +3,13 @@ package GUI;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
-import javax.swing.JTextField;
-
-import org.apache.axis2.AxisFault;
-
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JMenuBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import GUI.monitor;
-import testWeatherService.*;
 import melbourneweather2.*;
 import melbourneweather2.MelbourneWeather2Stub.GetLocationsResponse;
+import java.awt.Checkbox;
 
 public class homeScreen {
 
@@ -56,7 +49,7 @@ public class homeScreen {
 		
 		String[] locationList = LocationsResponse.get_return();
 		frmMelbourneWeather = new JFrame();
-		frmMelbourneWeather.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMelbourneWeather.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmMelbourneWeather.setTitle("Melbourne Weather 2 Desktop Application");
 		frmMelbourneWeather.setBounds(100, 100, 450, 300);
 		frmMelbourneWeather.getContentPane().setLayout(null);
@@ -65,16 +58,29 @@ public class homeScreen {
 		locationComboBox.setBounds(117, 49, 147, 20);
 		frmMelbourneWeather.getContentPane().add(locationComboBox);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
+		Checkbox tempCheckbox = new Checkbox("Temperature");
+		tempCheckbox.setBounds(141, 116, 95, 22);
+		frmMelbourneWeather.getContentPane().add(tempCheckbox);
+		
+		Checkbox rainCheckbox = new Checkbox("Rainfall");
+		rainCheckbox.setBounds(141, 161, 95, 22);
+		frmMelbourneWeather.getContentPane().add(rainCheckbox);
+		
+		
+		JButton showButton = new JButton("Show Weather");
+		showButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String selectedLocation = locationComboBox.getSelectedItem().toString();
-				monitor Newmonitor = new monitor(selectedLocation);
-				Newmonitor.main(selectedLocation);
+				int locationIndex = locationComboBox.getSelectedIndex();
+				monitor newMonitor = new monitor(selectedLocation, locationIndex, tempCheckbox.getState(), rainCheckbox.getState());
+				
+				newMonitor.main(selectedLocation, locationIndex, tempCheckbox.getState(), rainCheckbox.getState());
+				
 			}
 		});
-		btnNewButton.setBounds(171, 227, 89, 23);
-		frmMelbourneWeather.getContentPane().add(btnNewButton);
+		showButton.setBounds(141, 227, 137, 23);
+		frmMelbourneWeather.getContentPane().add(showButton);
+		
 		
 		
 	}
