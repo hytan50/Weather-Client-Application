@@ -55,8 +55,17 @@ public class TestWeatherService extends Timer{
 		TemperatureRequest.setLocation(Locations[n-1]);
 		GetTemperatureResponse TemperatureResponse = MelbourneWeatherService.getTemperature(TemperatureRequest);
 		lol = TemperatureResponse.get_return();
-		Timer timer = new Timer();
+		String temp = lol[TemperatureIndex];
+		String rain1 = Rainfalls1[n-1];
+		String rain2 = Rainfalls2[n-1];
+		String locations = Locations[n-1];
+		
+		
+		Output a = new Output(locations,rain1,temp,rain2);
+		a.out();
+		//Timer timer = new Timer();
 		//timer.schedule(run(Locations,n,Rainfalls2, Temperature, Rainfalls1), 0, 5000);
+		/*
 		timer.schedule(new TimerTask() {
 		    public void run() {
 		       System.out.println(
@@ -69,7 +78,7 @@ public class TestWeatherService extends Timer{
 		    }
 		}, 0, 300000);
 		
-
+		*/
 		
 		
 		
