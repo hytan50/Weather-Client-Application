@@ -10,7 +10,7 @@ import java.awt.Font;
 
 public class monitor {
 
-	private JFrame frmMelborneWeather;
+	JFrame frmMelborneWeather;
 	static JLabel tempLabel = new JLabel("Temperature: ");
 	static JLabel rainlabel = new JLabel("Rainfall:    ");
 	
