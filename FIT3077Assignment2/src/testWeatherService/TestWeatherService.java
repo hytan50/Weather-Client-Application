@@ -34,7 +34,7 @@ public class TestWeatherService extends Timer{
 		String[] Locations = LocationsResponse.get_return();
 		String[] Temperature = new String[Locations.length];
 		GetTemperature TemperatureRequest = new GetTemperature();
-		TemperatureRequest.setLocation(Locations[index-1]);
+		TemperatureRequest.setLocation(Locations[index]);
 		GetTemperatureResponse TemperatureResponse = MelbourneWeatherService.getTemperature(TemperatureRequest);
 		lol = TemperatureResponse.get_return();
 		String temp = lol[TemperatureIndex];
@@ -51,13 +51,13 @@ public class TestWeatherService extends Timer{
 		String[] Rainfalls1 = new String[Locations.length];
 		String[] Rainfalls2 = new String[Locations.length];
 		GetRainfall RainfallRequest = new GetRainfall();
-		RainfallRequest.setLocation(Locations[index-1]);
+		RainfallRequest.setLocation(Locations[index]);
 		GetRainfallResponse RainfallResponse = MelbourneWeatherService.getRainfall(RainfallRequest);
 		Rainfall = RainfallResponse.get_return();
-		Rainfalls1[index-1] = Rainfall[TimestampIndex];
-		Rainfalls2[index-1] = Rainfall[RainfallIndex];
-		String rain1 = Rainfalls1[index-1];
-		String rain2 = Rainfalls2[index-1];
+		Rainfalls1[index] = Rainfall[TimestampIndex];
+		Rainfalls2[index] = Rainfall[RainfallIndex];
+		String rain1 = Rainfalls1[index];
+		String rain2 = Rainfalls2[index];
 		return rain2;
 	}
 
