@@ -38,7 +38,7 @@ public class TestWeatherService extends Timer{
 		GetTemperatureResponse TemperatureResponse = MelbourneWeatherService.getTemperature(TemperatureRequest);
 		lol = TemperatureResponse.get_return();
 		String temp = lol[TemperatureIndex];
-		return temp;
+		return temp;//return temmperature
 	}
 	
 	public String getRain(int index) throws Exception{
