@@ -68,7 +68,7 @@ public class monitor {
 		TestWeatherService getWeatherData = new TestWeatherService();
 		
 		try {
-			int delay = 500;           //milliseconds 
+			int delay = 300000;           //milliseconds 
 			String lbl=null;			//time stamp
 			String dateString=null;
 			String timeString=null;
@@ -120,7 +120,7 @@ public class monitor {
 		
 		if (tempCheckboxState){
 			try {
-				int delay = 500;           //milliseconds 
+				int delay = 300000;           //milliseconds 
 				String temp =null;
 				temp = getWeatherData.getTemp(locationIndex);
 				tempLabel.setText("Temperature :  "+temp);
@@ -159,7 +159,7 @@ public class monitor {
 		}
 		if (rainCheckboxState){
 			try {
-				int delay = 500;           //milliseconds    
+				int delay = 300000;           //milliseconds    
 				
 				final Timer timer = new Timer(delay, null);
 				String currRainfall = null;
