@@ -72,8 +72,11 @@ public class homeScreen {
 			public void actionPerformed(ActionEvent arg0) {
 				String selectedLocation = locationComboBox.getSelectedItem().toString();
 				int locationIndex = locationComboBox.getSelectedIndex();
+				if(!rainCheckbox.getState() && !tempCheckbox.getState()){}
+				else{
 				monitor newMonitor = new monitor(selectedLocation, locationIndex, tempCheckbox.getState(), rainCheckbox.getState());
 				newMonitor.frmMelborneWeather.setVisible(true);
+				}
 				
 			}
 		});
