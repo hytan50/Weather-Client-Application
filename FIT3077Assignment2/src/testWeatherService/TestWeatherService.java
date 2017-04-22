@@ -48,17 +48,32 @@ public class TestWeatherService extends Timer{
 		GetLocationsResponse LocationsResponse = MelbourneWeatherService.getLocations();
 		String[] Locations = LocationsResponse.get_return();
 		String[] Rainfall = new String[2];
-		String[] Rainfalls1 = new String[Locations.length];
 		String[] Rainfalls2 = new String[Locations.length];
 		GetRainfall RainfallRequest = new GetRainfall();
 		RainfallRequest.setLocation(Locations[index]);
 		GetRainfallResponse RainfallResponse = MelbourneWeatherService.getRainfall(RainfallRequest);
 		Rainfall = RainfallResponse.get_return();
-		Rainfalls1[index] = Rainfall[TimestampIndex];
 		Rainfalls2[index] = Rainfall[RainfallIndex];
-		String rain1 = Rainfalls1[index];
 		String rain2 = Rainfalls2[index];
 		return rain2;
 	}
+	
+	public String getTime(int index) throws Exception{
+		final MelbourneWeather2Stub MelbourneWeatherService = new MelbourneWeather2Stub();
+		
+		// Get the available locations from the web service
+		GetLocationsResponse LocationsResponse = MelbourneWeatherService.getLocations();
+		String[] Locations = LocationsResponse.get_return();
+		String[] Rainfall = new String[2];
+		String[] Rainfalls1 = new String[Locations.length];
+		GetRainfall RainfallRequest = new GetRainfall();
+		RainfallRequest.setLocation(Locations[index]);
+		GetRainfallResponse RainfallResponse = MelbourneWeatherService.getRainfall(RainfallRequest);
+		Rainfall = RainfallResponse.get_return();
+		Rainfalls1[index] = Rainfall[TimestampIndex];
+		String rain1 = Rainfalls1[index];
+		return rain1;
+	}
+	
 
 }
