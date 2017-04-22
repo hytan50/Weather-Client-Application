@@ -68,8 +68,18 @@ public class monitor {
 		TestWeatherService getWeatherData = new TestWeatherService();
 		
 		try {
-			int delay = 300000;           //milliseconds 
-			lblTimestamp.setText("timeStamp :  "+"Calculating...");
+			int delay = 500;           //milliseconds 
+			String lbl=null;			//time stamp
+			String dateString=null;
+			String timeString=null;
+			lbl = getWeatherData.getTime(locationIndex);
+			String[] splited = lbl.split("\\s+");
+		    DateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
+		    Date date = format1.parse(splited[0]);
+		    DateFormat format2 = new SimpleDateFormat("dd MMMM, yyyy");
+		    dateString = format2.format(date);
+		    timeString = splited[1];
+            lblTimestamp.setText("TimeStamp:  " + timeString+"      "+dateString);
 			final Timer timer = new Timer(delay, null);
 			timer.setDelay(delay); 
 			timer.setRepeats(true); 
@@ -110,8 +120,10 @@ public class monitor {
 		
 		if (tempCheckboxState){
 			try {
-				int delay = 300000;           //milliseconds 
-				tempLabel.setText("Temperature :  "+"Calculating...");
+				int delay = 500;           //milliseconds 
+				String temp =null;
+				temp = getWeatherData.getTemp(locationIndex);
+				tempLabel.setText("Temperature :  "+temp);
 				final Timer timer = new Timer(delay, null);
 				timer.setDelay(delay); 
 				timer.setRepeats(true); 
@@ -147,10 +159,12 @@ public class monitor {
 		}
 		if (rainCheckboxState){
 			try {
-				int delay = 300000;           //milliseconds    
+				int delay = 500;           //milliseconds    
 				
 				final Timer timer = new Timer(delay, null);
-				rainlabel.setText("Rainfall:  " + "Calculating...");
+				String currRainfall = null;
+				currRainfall = getWeatherData.getRain(locationIndex);
+				rainlabel.setText("Rainfall:  " + currRainfall);
 				timer.setDelay(delay); 
 				timer.setRepeats(true); 
 	              timer.addActionListener(new ActionListener() {
