@@ -54,7 +54,7 @@ public class homeScreen {
 		frmMelbourneWeather.setBounds(100, 100, 450, 300);
 		frmMelbourneWeather.getContentPane().setLayout(null);
 		
-		JComboBox locationComboBox = new JComboBox(locationList);
+		JComboBox<Object> locationComboBox = new JComboBox<Object>(locationList);
 		locationComboBox.setBounds(117, 49, 147, 20);
 		frmMelbourneWeather.getContentPane().add(locationComboBox);
 		

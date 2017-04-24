@@ -20,6 +20,7 @@ public class monitor {
 	 JLabel tempLabel = new JLabel("Temperature: ");
 	 JLabel rainlabel = new JLabel("Rainfall:  ");
 	 JLabel lblTimestamp = new JLabel("TimeStamp:  ");
+	 int delay = 300000;   //milliseconds / 5 minutes
 	/**
 	 * Launch the application.
 	 */
@@ -68,8 +69,7 @@ public class monitor {
 		TestWeatherService getWeatherData = new TestWeatherService();
 		
 		try {
-			int delay = 300000;           //milliseconds 
-			String lbl=null;			//time stamp
+			String lbl=null;			//gets and sets a time stamp for the timeStamp label
 			String dateString=null;
 			String timeString=null;
 			lbl = getWeatherData.getTime(locationIndex);
@@ -120,8 +120,7 @@ public class monitor {
 		
 		if (tempCheckboxState){
 			try {
-				int delay = 300000;           //milliseconds 
-				String temp =null;
+				String temp =null;				//this all sets the temperature for the temperature label
 				temp = getWeatherData.getTemp(locationIndex);
 				tempLabel.setText("Temperature :  "+temp);
 				final Timer timer = new Timer(delay, null);
@@ -158,9 +157,7 @@ public class monitor {
 			tempLabel.setVisible(false);
 		}
 		if (rainCheckboxState){
-			try {
-				int delay = 300000;           //milliseconds    
-				
+			try { 	//this sets the rainfall information for the label
 				final Timer timer = new Timer(delay, null);
 				String currRainfall = null;
 				currRainfall = getWeatherData.getRain(locationIndex);

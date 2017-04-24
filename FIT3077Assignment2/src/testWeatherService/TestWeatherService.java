@@ -1,9 +1,7 @@
 package testWeatherService;
 
 import java.lang.Exception;
-import java.util.Scanner;
 import java.util.Timer;
-import java.util.TimerTask;
 import melbourneweather2.MelbourneWeather2Stub;
 import melbourneweather2.MelbourneWeather2Stub.*;
 
@@ -31,7 +29,6 @@ public class TestWeatherService extends Timer{
 		// Get the available locations from the web service
 		GetLocationsResponse LocationsResponse = MelbourneWeatherService.getLocations();
 		String[] Locations = LocationsResponse.get_return();
-		String[] Temperature = new String[Locations.length];
 		GetTemperature TemperatureRequest = new GetTemperature();
 		TemperatureRequest.setLocation(Locations[index]);
 		GetTemperatureResponse TemperatureResponse = MelbourneWeatherService.getTemperature(TemperatureRequest);
