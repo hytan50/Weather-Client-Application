@@ -21,7 +21,7 @@ public class TestWeatherService extends Timer{
 	// set up some constants to index into the result arrays
 	private static final int TimestampIndex = 0;
 	private static final int RainfallIndex = 1;
-	private static String[] lol = new String[40];
+	private static String[] tempResponse = new String[40];
 	private static final int TemperatureIndex = 1;
 	String[] output = new String[200];
 
@@ -35,8 +35,8 @@ public class TestWeatherService extends Timer{
 		GetTemperature TemperatureRequest = new GetTemperature();
 		TemperatureRequest.setLocation(Locations[index]);
 		GetTemperatureResponse TemperatureResponse = MelbourneWeatherService.getTemperature(TemperatureRequest);
-		lol = TemperatureResponse.get_return();
-		String temp = lol[TemperatureIndex];
+		tempResponse = TemperatureResponse.get_return();
+		String temp = tempResponse[TemperatureIndex];
 		return temp;
 	}
 	
