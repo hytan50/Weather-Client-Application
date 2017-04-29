@@ -5,10 +5,10 @@ import javax.swing.DefaultComboBoxModel;
 import melbourneweather2.MelbourneWeather2Stub;
 import melbourneweather2.MelbourneWeather2Stub.GetLocationsResponse;
 
-public class concreteHomeScreen extends homeScreen{
+public class concreteMelbourneHomeScreen extends homeScreen{
 
 	
-	public concreteHomeScreen() throws Exception {
+	public concreteMelbourneHomeScreen() throws Exception {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -20,7 +20,7 @@ public class concreteHomeScreen extends homeScreen{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					homeScreen window = new concreteHomeScreen();
+					homeScreen window = new concreteMelbourneHomeScreen();
 					window.frmMelbourneWeather.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +29,7 @@ public class concreteHomeScreen extends homeScreen{
 		});
 	}
 	
-	
+	/*
 	@Override
 	public void showButtonClicked(){
 		
@@ -42,6 +42,7 @@ public class concreteHomeScreen extends homeScreen{
 		}
 		 
 	}
+	*/
 	
 	@Override
 	public void addLocationToComboBox() throws Exception{
