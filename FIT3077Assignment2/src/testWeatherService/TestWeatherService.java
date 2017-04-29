@@ -4,15 +4,7 @@ import java.lang.Exception;
 import java.util.Timer;
 import melbourneweather2.MelbourneWeather2Stub;
 import melbourneweather2.MelbourneWeather2Stub.*;
-
-/*
- * Basic example of use of MelbourneWeather2 Axis2 web services in Java
- * IMPORTANT: This is not intended as an example of good design. It is
- * simply an illustration of the basics.
- * 
- * Author:  David.Squire@monash.edu
- * Last Modified: 20170405
- */		
+	
 
 public class TestWeatherService extends Timer{
 
@@ -24,6 +16,7 @@ public class TestWeatherService extends Timer{
 	String[] output = new String[200];
 
 	public String getTemp(int index) throws Exception{
+		//get temperature for specific location
 		final MelbourneWeather2Stub MelbourneWeatherService = new MelbourneWeather2Stub();
 		
 		// Get the available locations from the web service
@@ -70,6 +63,7 @@ public class TestWeatherService extends Timer{
 		String rain1 = Rainfalls1[index];
 		return rain1;
 	}
+	
 	
 
 }

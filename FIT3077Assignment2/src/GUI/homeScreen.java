@@ -1,36 +1,40 @@
 package GUI;
 
-import java.awt.EventQueue;
+//import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import GUI.monitor;
+//import java.awt.event.ActionListener;
+//import java.awt.event.ActionEvent;
+//import GUI.monitor;
 import melbourneweather2.*;
 import melbourneweather2.MelbourneWeather2Stub.GetLocationsResponse;
 import java.awt.Checkbox;
 
-public class homeScreen {
+public abstract class homeScreen {
 
-	private JFrame frmMelbourneWeather;
-
+	JFrame frmMelbourneWeather;
+	JButton showButton = new JButton("");
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					homeScreen window = new homeScreen();
-					window.frmMelbourneWeather.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	/*
+	 * main method is included in the concrete class, not abstract class
+	 * 
+	 * 
+	 * public static void main(String[] args) {
+	 *	EventQueue.invokeLater(new Runnable() {
+	 *	 	public void run() {
+	 *			try {
+	 *				homeScreen window = new homeScreen();
+	 *				window.frmMelbourneWeather.setVisible(true);
+	 *			} catch (Exception e) {
+	 *				e.printStackTrace();
+	 *			}
+	 *		}
+	 *	});
+	 *}
+	 */
 	/**
 	 * Create the application.
 	 * @throws Exception 
@@ -67,23 +71,29 @@ public class homeScreen {
 		frmMelbourneWeather.getContentPane().add(rainCheckbox);
 		
 		
-		JButton showButton = new JButton("Show Weather");
-		showButton.addActionListener(new ActionListener() {
+		//JButton showButton = new JButton("Show Weather");
+		showButton.setText("Show Weather");
+		/*
+		  showButton.addActionListener(new ActionListener() {
+		 
 			public void actionPerformed(ActionEvent arg0) {
 				String selectedLocation = locationComboBox.getSelectedItem().toString();
 				int locationIndex = locationComboBox.getSelectedIndex();
 				if(!rainCheckbox.getState() && !tempCheckbox.getState()){}
 				else{
 				monitor newMonitor = new monitor(selectedLocation, locationIndex, tempCheckbox.getState(), rainCheckbox.getState());
-				newMonitor.frmMelborneWeather.setVisible(true);
+				newMonitor.frmMelbourneWeather.setVisible(true);
 				}
 				
 			}
 		});
-		showButton.setBounds(141, 227, 137, 23);
+		*/
+		showButton.setBounds(117, 227, 147, 23);
 		frmMelbourneWeather.getContentPane().add(showButton);
 		
 		
 		
 	}
+	
+	public void showButtonClicked(){}
 }

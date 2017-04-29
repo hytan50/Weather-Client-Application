@@ -16,11 +16,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class monitor {
-	JFrame frmMelborneWeather;
+	 JFrame frmMelbourneWeather;
 	 JLabel tempLabel = new JLabel("Temperature: ");
 	 JLabel rainlabel = new JLabel("Rainfall:  ");
 	 JLabel lblTimestamp = new JLabel("TimeStamp:  ");
-	 int delay = 300000;   //milliseconds / 5 minutes
+	 int delay = 1000;   //milliseconds / 5 minutes
 	/**
 	 * Launch the application.
 	 */
@@ -29,7 +29,7 @@ public class monitor {
 			public void run() {
 				try {
 					monitor window = new monitor(locationName, locationIndex, tempCheckboxState, rainCheckboxState);
-					window.frmMelborneWeather.setVisible(true);			
+					window.frmMelbourneWeather.setVisible(true);			
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -46,25 +46,25 @@ public class monitor {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(String locationName, int locationIndex, boolean tempCheckboxState, boolean rainCheckboxState) {
-		frmMelborneWeather = new JFrame();
-		frmMelborneWeather.setTitle("Melborne Weather 2 - " + locationName);
-		frmMelborneWeather.setBounds(100, 100, 450, 300);
-		frmMelborneWeather.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frmMelborneWeather.getContentPane().setLayout(null);
+		frmMelbourneWeather = new JFrame();
+		frmMelbourneWeather.setTitle("Melbourne Weather 2 - " + locationName);
+		frmMelbourneWeather.setBounds(100, 100, 450, 300);
+		frmMelbourneWeather.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmMelbourneWeather.getContentPane().setLayout(null);
 		
 		JLabel labelLocationName = new JLabel(locationName);
 		labelLocationName.setBounds(30, 30, 434, 30);
 		labelLocationName.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		frmMelborneWeather.getContentPane().add(labelLocationName);
+		frmMelbourneWeather.getContentPane().add(labelLocationName);
 		
 		tempLabel.setBounds(42, 94, 200, 14);
-		frmMelborneWeather.getContentPane().add(tempLabel);
+		frmMelbourneWeather.getContentPane().add(tempLabel);
 		
 		rainlabel.setBounds(42, 146, 200, 14);
-		frmMelborneWeather.getContentPane().add(rainlabel);
+		frmMelbourneWeather.getContentPane().add(rainlabel);
 		
 		lblTimestamp.setBounds(43, 194, 300, 16);
-		frmMelborneWeather.getContentPane().add(lblTimestamp);
+		frmMelbourneWeather.getContentPane().add(lblTimestamp);
 		
 		TestWeatherService getWeatherData = new TestWeatherService();
 		
@@ -89,9 +89,9 @@ public class monitor {
 					String timeString=null;
                   public void actionPerformed(ActionEvent evt){
 
-                	  frmMelborneWeather.addWindowListener(new WindowAdapter() {
+                	  frmMelbourneWeather.addWindowListener(new WindowAdapter() {
                           public void windowClosing(WindowEvent ev) {  //stop when user closes frame  
-                        	  frmMelborneWeather.dispose();
+                        	  frmMelbourneWeather.dispose();
                         	  timer.stop();
                           }
                       });
@@ -130,9 +130,9 @@ public class monitor {
 	            	  String temp =null;
 	                  public void actionPerformed(ActionEvent evt){
 	
-	                	  frmMelborneWeather.addWindowListener(new WindowAdapter() {
+	                	  frmMelbourneWeather.addWindowListener(new WindowAdapter() {
 	                          public void windowClosing(WindowEvent ev) {  //stop when user closes frame  
-	                        	  frmMelborneWeather.dispose();
+	                        	  frmMelbourneWeather.dispose();
 	                        	  timer.stop();
 	                          }
 	                      });
@@ -169,9 +169,9 @@ public class monitor {
 	            	  
 	                  public void actionPerformed(ActionEvent evt){
 	
-	                	  frmMelborneWeather.addWindowListener(new WindowAdapter() {
+	                	  frmMelbourneWeather.addWindowListener(new WindowAdapter() {
 	                          public void windowClosing(WindowEvent ev) {  //stop when user closes frame  
-	                        	  frmMelborneWeather.dispose();
+	                        	  frmMelbourneWeather.dispose();
 	                        	  
 	                        	  timer.stop();
 	                          }
