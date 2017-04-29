@@ -1,12 +1,14 @@
 package GUI;
 
 import javax.swing.DefaultComboBoxModel;
+
+import main.LocationGrabber;
 import melbourneweather2.MelbourneWeather2Stub;
 import melbourneweather2.MelbourneWeather2Stub.GetLocationsResponse;
 
 public class concreteMelbourneHomeScreen extends homeScreen{
 
-	
+	LocationGrabber locationGrabber;
 	public concreteMelbourneHomeScreen() throws Exception {
 		super();
 		// TODO Auto-generated constructor stub
@@ -21,8 +23,8 @@ public class concreteMelbourneHomeScreen extends homeScreen{
 		int locationIndex = locationComboBox.getSelectedIndex();
 		if(!rainCheckbox.getState() && !tempCheckbox.getState()){}
 		else{
-		monitor newMonitor = new concreteMelbourneMonitor(selectedLocation, locationIndex, tempCheckbox.getState(), rainCheckbox.getState());
-		newMonitor.frmMelbourneWeather.setVisible(true);
+			monitor newMonitor = new concreteMelbourneMonitor(locationGrabber, selectedLocation, locationIndex, tempCheckbox.getState(), rainCheckbox.getState());
+			newMonitor.frmMelbourneWeather.setVisible(true);
 		}
 		 
 	}
@@ -36,6 +38,9 @@ public class concreteMelbourneHomeScreen extends homeScreen{
 		String[] locationList = LocationsResponse.get_return();
 		final DefaultComboBoxModel<Object> model = new DefaultComboBoxModel<Object>(locationList);
 		locationComboBox.setModel(model);
+		
+		int locationSize = locationList.length;
+		locationGrabber = new LocationGrabber(locationSize);
 	}
 	
 	@Override
