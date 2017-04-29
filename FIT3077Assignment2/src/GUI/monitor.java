@@ -1,12 +1,13 @@
 package GUI;
-import java.awt.EventQueue;
+//import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.Timer;
+//import javax.swing.Timer;
 
-import testWeatherService.TestWeatherService;
+//import testWeatherService.TestWeatherService;
 import java.awt.Font;
+/*
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -14,16 +15,18 @@ import java.awt.event.WindowEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+*/
 
-public class monitor {
+public abstract class monitor {
 	 JFrame frmMelbourneWeather;
 	 JLabel tempLabel = new JLabel("Temperature: ");
 	 JLabel rainlabel = new JLabel("Rainfall:  ");
 	 JLabel lblTimestamp = new JLabel("TimeStamp:  ");
-	 int delay = 1000;   //milliseconds / 5 minutes
+	 //int delay = 1000;   //milliseconds / 5 minutes
 	/**
 	 * Launch the application.
 	 */
+	 /*
 	public void main(String locationName, int locationIndex, boolean tempCheckboxState, boolean rainCheckboxState) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,19 +39,21 @@ public class monitor {
 			}
 		});
 	}
+	*/
 	/**
 	 * Create the application.
 	 */
 	public monitor(String locationName, int locationIndex, boolean tempCheckboxState, boolean rainCheckboxState) {
 		initialize(locationName, locationIndex, tempCheckboxState, rainCheckboxState);
-		calculate(locationIndex, tempCheckboxState,  rainCheckboxState);
+		//calculate(locationIndex, tempCheckboxState,  rainCheckboxState);
 	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(String locationName, int locationIndex, boolean tempCheckboxState, boolean rainCheckboxState) {
 		frmMelbourneWeather = new JFrame();
-		frmMelbourneWeather.setTitle("Melbourne Weather 2 - " + locationName);
+		setMonitorTitle(locationName);
+		
 		frmMelbourneWeather.setBounds(100, 100, 450, 300);
 		frmMelbourneWeather.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmMelbourneWeather.getContentPane().setLayout(null);
@@ -67,7 +72,8 @@ public class monitor {
 		lblTimestamp.setBounds(43, 194, 300, 16);
 		frmMelbourneWeather.getContentPane().add(lblTimestamp);
 	}
-	public void calculate(int locationIndex,boolean tempCheckboxState, boolean rainCheckboxState){
+	public void setMonitorTitle(String locationName) {}
+	/*public void calculate(int locationIndex,boolean tempCheckboxState, boolean rainCheckboxState){
 		
 		TestWeatherService getWeatherData = new TestWeatherService();
 		
@@ -200,4 +206,5 @@ public class monitor {
 			rainlabel.setVisible(false);
 		}
 	}
+	*/
 }
