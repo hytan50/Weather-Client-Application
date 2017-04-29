@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class WeatherGrabber implements Subject{
 	
 	private ArrayList<Observer> observers;
-	private float temperature;
-	private float rainfall;
+	private String temperature;
+	private String rainfall;
+	private String timestamp;
 	
 	public WeatherGrabber(){
 		
@@ -35,17 +36,22 @@ public class WeatherGrabber implements Subject{
 	public void notifyObserver() {
 		//tell the observer to update the information
 		for (Observer observer :observers){
-			observer.update(temperature, rainfall);
+			observer.update(temperature, rainfall, timestamp);
 		}
 	}
 	
-	public void setTemperature(float latestTemperature){
+	public void setTemperature(String latestTemperature){
 		this.temperature = latestTemperature;
 		notifyObserver();
 	}
 	
-	public void setRainfall(float latestRainfall){
+	public void setRainfall(String latestRainfall){
 		this.rainfall = latestRainfall;
+		notifyObserver();
+	}
+	
+	public void setTimeStamp(String latestTimestamp){
+		this.timestamp = latestTimestamp;
 		notifyObserver();
 	}
 	

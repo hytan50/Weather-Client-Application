@@ -2,8 +2,8 @@ package designPattern;
 
 public class WeatherObserver implements Observer{
 	
-	private float temperature;
-	private float rainfall;
+	private String temperature;
+	private String rainfall;
 	
 	private Subject weatherGrabber;
 	
@@ -19,15 +19,15 @@ public class WeatherObserver implements Observer{
 	}
 	
 	@Override
-	public void update(Float temperatureObject, Float rainfallObject) {
+	public void update(String temperatureObject, String rainfallObject, String timestamp) {
 		
 		if(temperatureObject != null){
-			float temp = temperatureObject;
+			String temp = temperatureObject;
 			this.temperature = temp;
 		}
 		
 		if(rainfallObject != null){
-			float rain = rainfallObject;
+			String rain = rainfallObject;
 			this.rainfall = rain;
 		}
 		

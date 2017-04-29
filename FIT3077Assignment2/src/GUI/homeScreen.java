@@ -9,11 +9,11 @@ import java.awt.Checkbox;
 
 public abstract class homeScreen {
 
-	JFrame frmMelbourneWeather;
-	JButton showButton = new JButton("");
-	Checkbox rainCheckbox = new Checkbox("Rainfall");
-	Checkbox tempCheckbox = new Checkbox("Temperature");
-	JComboBox<Object> locationComboBox = new JComboBox<Object>();
+	public JFrame frmMelbourneWeather;
+	public JButton showButton = new JButton("");
+	public Checkbox rainCheckbox = new Checkbox("Rainfall");
+	public Checkbox tempCheckbox = new Checkbox("Temperature");
+	public JComboBox<Object> locationComboBox = new JComboBox<Object>();
 	
 	
 	/*
