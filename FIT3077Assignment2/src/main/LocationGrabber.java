@@ -1,14 +1,13 @@
 package main;
 
 import java.util.ArrayList;
-import designPattern.Subject;
 import designPattern.WeatherGrabber;
 
 public class LocationGrabber {
-	private ArrayList<Subject> grabberList;
+	private ArrayList<WeatherGrabber> grabberList;
 	
 	public LocationGrabber(int size){
-		grabberList = new ArrayList<Subject>();
+		grabberList = new ArrayList<WeatherGrabber>();
 		for (int i = 0; i<size; i++){
 			grabberList.add(null);
 		}
@@ -20,5 +19,10 @@ public class LocationGrabber {
 	
 	public void deleteGrabber(int locationIndex){
 		grabberList.set(locationIndex, null);
+	}
+	
+	public WeatherGrabber getGrabber(int locationIndex){
+		WeatherGrabber returnGrabber = grabberList.get(locationIndex);
+		return returnGrabber;
 	}
 }
