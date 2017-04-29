@@ -13,8 +13,14 @@ public class LocationGrabber {
 		}
 	}
 	
-	public void addGrabber(int locationIndex, WeatherGrabber grabber){
-		grabberList.set(locationIndex, grabber);
+	public void addGrabber(int locationIndex){
+		if (grabberList.get(locationIndex) == null){
+			WeatherGrabber grabber = new WeatherGrabber();
+			grabberList.set(locationIndex, grabber);
+		}
+		else{
+			System.out.println("Grabber existed.");
+		}
 	}
 	
 	public void deleteGrabber(int locationIndex){
