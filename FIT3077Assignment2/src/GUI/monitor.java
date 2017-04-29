@@ -41,6 +41,7 @@ public class monitor {
 	 */
 	public monitor(String locationName, int locationIndex, boolean tempCheckboxState, boolean rainCheckboxState) {
 		initialize(locationName, locationIndex, tempCheckboxState, rainCheckboxState);
+		calculate(locationIndex, tempCheckboxState,  rainCheckboxState);
 	}
 	/**
 	 * Initialize the contents of the frame.
@@ -65,6 +66,8 @@ public class monitor {
 		
 		lblTimestamp.setBounds(43, 194, 300, 16);
 		frmMelbourneWeather.getContentPane().add(lblTimestamp);
+	}
+	public void calculate(int locationIndex,boolean tempCheckboxState, boolean rainCheckboxState){
 		
 		TestWeatherService getWeatherData = new TestWeatherService();
 		
