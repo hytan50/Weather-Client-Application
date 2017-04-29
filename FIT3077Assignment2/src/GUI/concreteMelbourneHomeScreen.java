@@ -23,6 +23,9 @@ public class concreteMelbourneHomeScreen extends homeScreen{
 		int locationIndex = locationComboBox.getSelectedIndex();
 		if(!rainCheckbox.getState() && !tempCheckbox.getState()){}
 		else{
+			if (locationGrabber.getGrabber(locationIndex)==null){
+				locationGrabber.addGrabber(locationIndex);
+			}
 			monitor newMonitor = new concreteMelbourneMonitor(locationGrabber, selectedLocation, locationIndex, tempCheckbox.getState(), rainCheckbox.getState());
 			newMonitor.frmMelbourneWeather.setVisible(true);
 		}
