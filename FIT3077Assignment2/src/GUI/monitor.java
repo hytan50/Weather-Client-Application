@@ -72,6 +72,9 @@ public abstract class monitor {
 		lblTimestamp.setBounds(43, 194, 300, 16);
 		frmMelbourneWeather.getContentPane().add(lblTimestamp);
 	}
+	
+	public void updateData(String temperature, String rainfall, String timestamp){}
+	
 	public void setMonitorTitle(String locationName) {}
 	/*public void calculate(int locationIndex,boolean tempCheckboxState, boolean rainCheckboxState){
 		

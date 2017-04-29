@@ -170,4 +170,11 @@ public class concreteMelbourneMonitor extends monitor{
 		frmMelbourneWeather.setTitle("Melbourne Weather 2 - " + locationName);
 		}
 		
+		@Override
+		public void updateData(String currTemperature, String currRainfall, String currTimestamp){
+			tempLabel.setText("Temperature :  " +currTemperature);
+			rainlabel.setText("Rainfall:  " +currRainfall);
+			lblTimestamp.setText("TimeStamp:  "+currTimestamp);
+		}
+		
 	}
