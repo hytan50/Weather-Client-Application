@@ -4,7 +4,7 @@ public class WeatherObserver implements Observer{
 	
 	private String temperature;
 	private String rainfall;
-	
+	private String time;
 	private Subject weatherGrabber;
 	
 	private int observerID;
@@ -29,7 +29,11 @@ public class WeatherObserver implements Observer{
 		if(rainfallObject != null){
 			String rain = rainfallObject;
 			this.rainfall = rain;
-		}
+		}	
 		
+		if(timestamp != null){
+			String time = timestamp;
+			this.time = time;
+		}
 	}
 }
