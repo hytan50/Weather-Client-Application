@@ -1,9 +1,6 @@
 package main;
 
 import GUI.concreteMelbourneHomeScreen;
-import designPattern.WeatherGrabber;
-import designPattern.WeatherObserver;
-import testWeatherService.*;
 
 public class Main {
 

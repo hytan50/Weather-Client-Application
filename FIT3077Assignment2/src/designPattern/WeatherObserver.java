@@ -2,11 +2,15 @@ package designPattern;
 
 public class WeatherObserver implements Observer{
 	
+	@SuppressWarnings("unused")
 	private String temperature;
+	@SuppressWarnings("unused")
 	private String rainfall;
+	@SuppressWarnings("unused")
 	private String time;
 	public Subject weatherGrabber;
 	
+	@SuppressWarnings("unused")
 	private int observerID;
 	private static int observerIDTraker = 0;
 	
