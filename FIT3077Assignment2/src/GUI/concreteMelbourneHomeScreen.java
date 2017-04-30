@@ -1,6 +1,7 @@
 package GUI;
 import javax.swing.DefaultComboBoxModel;
-import main.LocationGrabber;
+
+import Location.LocationGrabber;
 import melbourneweather2.MelbourneWeather2Stub;
 import melbourneweather2.MelbourneWeather2Stub.GetLocationsResponse;
 

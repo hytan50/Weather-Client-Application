@@ -1,4 +1,4 @@
-package main;
+package Location;
 
 import java.util.ArrayList;
 import designPattern.WeatherGrabber;

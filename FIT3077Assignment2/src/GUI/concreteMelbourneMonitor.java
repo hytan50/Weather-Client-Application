@@ -8,8 +8,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.Timer;
+
+import Location.LocationGrabber;
 import designPattern.WeatherObserver;
-import main.LocationGrabber;
 import testWeatherService.TestWeatherService;
 
 public class concreteMelbourneMonitor extends monitor{
@@ -32,8 +33,11 @@ public class concreteMelbourneMonitor extends monitor{
 		public void setMonitorTitle(String locationName){
 		frmMelbourneWeather.setTitle("Melbourne Weather 2 - " + locationName);
 		}
+		
 		@Override
 		public void updateData(){
+			
+			//retrieve data from web
 			TestWeatherService getWeatherData = new TestWeatherService();
 			try {
 				currTimestamp= getWeatherData.getTime(locationIndex);

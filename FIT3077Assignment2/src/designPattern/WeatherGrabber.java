@@ -2,7 +2,7 @@ package designPattern;
 
 import java.util.ArrayList;
 
-import main.LocationGrabber;
+import Location.LocationGrabber;
 
 public class WeatherGrabber implements Subject{
 	
