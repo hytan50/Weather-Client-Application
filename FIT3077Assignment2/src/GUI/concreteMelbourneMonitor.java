@@ -14,7 +14,7 @@ import designPattern.WeatherObserver;
 import testWeatherService.TestWeatherService;
 
 public class concreteMelbourneMonitor extends monitor{
-	int delay = 1000;
+	int delay = 300000;
 	String dateString=null;
 	int locationIndex;
 	String timeString=null;
