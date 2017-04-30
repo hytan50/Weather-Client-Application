@@ -2,6 +2,8 @@ package GUI;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 public abstract class monitor {
 	 boolean tempCheckboxState;
 	 boolean rainCheckboxState;
@@ -19,6 +21,12 @@ public abstract class monitor {
 		this.tempCheckboxState = tempCheckboxState;
 		this.rainCheckboxState = rainCheckboxState;
 		frmMelbourneWeather = new JFrame();
+		frmMelbourneWeather.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosed(WindowEvent arg0) {
+				closeMonitor();
+			}
+		});
 		setMonitorTitle(locationName);
 		
 		frmMelbourneWeather.setBounds(100, 100, 450, 300);
@@ -39,6 +47,10 @@ public abstract class monitor {
 		lblTimestamp.setBounds(43, 194, 300, 16);
 		frmMelbourneWeather.getContentPane().add(lblTimestamp);
 	}
+	
 	public void updateData(){}
+	
 	public void setMonitorTitle(String locationName) {}
+	
+	public void closeMonitor(){}
 }

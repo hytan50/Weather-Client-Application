@@ -13,19 +13,6 @@ public class Main {
 		concreteMelbourneHomeScreen homeScreen = new concreteMelbourneHomeScreen();
 		homeScreen.frmMelbourneWeather.setVisible(true);
 		
-		TestWeatherService getWeatherData = new TestWeatherService();
-		
-		
-		WeatherGrabber weatherGrabber = new WeatherGrabber();
-		WeatherObserver weatherObserver =  new WeatherObserver(weatherGrabber);
-		
-		int locationIndex = homeScreen.locationComboBox.getSelectedIndex();
-		String temp = getWeatherData.getTemp(locationIndex);
-		weatherGrabber.setTemperature(temp);
-		
-		
-		
-
 	}
 
 }

@@ -2,16 +2,20 @@ package designPattern;
 
 import java.util.ArrayList;
 
+import main.LocationGrabber;
+
 public class WeatherGrabber implements Subject{
 	
 	private ArrayList<Observer> observers;
 	private String temperature;
 	private String rainfall;
 	private String timestamp;
+	private LocationGrabber locationGrabber;
 	
-	public WeatherGrabber(){
+	public WeatherGrabber(LocationGrabber grabberList){
 		
 		observers = new ArrayList<Observer>();
+		this.locationGrabber = grabberList;
 		
 	}
 
@@ -25,10 +29,14 @@ public class WeatherGrabber implements Subject{
 	@Override
 	public void unregister(Observer deleteObserver) {
 		//close the monitor that needs to observe
-		
 		int indexObserver = observers.indexOf(deleteObserver);
 		observers.remove(indexObserver);
-		System.out.println(deleteObserver +" at index " + indexObserver +" is deleted.");
+		System.out.println(deleteObserver +" at index " + indexObserver +" is deleted.\n");
+		if (observers.size() == 0){
+			this.locationGrabber.deleteGrabber(this.locationGrabber.getGrabberIndex(this));
+			//System.out.println("the grabber is empty, hence deleted.");
+			//the line above is used to check if the grabber is deleted
+		}
 		
 	}
 

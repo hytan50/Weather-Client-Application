@@ -5,7 +5,7 @@ public class WeatherObserver implements Observer{
 	private String temperature;
 	private String rainfall;
 	private String time;
-	private Subject weatherGrabber;
+	public Subject weatherGrabber;
 	
 	private int observerID;
 	private static int observerIDTraker = 0;
@@ -14,7 +14,6 @@ public class WeatherObserver implements Observer{
 		this.weatherGrabber = weatherGrabber;
 		
 		this.observerID = ++observerIDTraker;
-		
 		weatherGrabber.register(this);
 	}
 	

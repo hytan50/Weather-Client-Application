@@ -137,5 +137,10 @@ public class concreteMelbourneMonitor extends monitor{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}		
+		}
+		
+		@Override
+		public void closeMonitor(){
+			this.observer.weatherGrabber.unregister(this.observer);
+		}
 	}
