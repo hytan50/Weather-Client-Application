@@ -1,8 +1,8 @@
 # FIT3077-Assignment-2
-# Assignment 2 Stage 1 
+# Assignment 2 
 # Location: Clayton, Monash University, Australia 
 # Start date: 2 April 2017 
-# End Date: 30 April 2017 
+# End Date: 21 May 2017 
 # Contributors: Saurav Kadam, Hui Yee Tan 
 # Contact: hytan50@student.monash.edu, skad9@student.monash.edu
 # Significance: It is a weather service application written in the Java programming language 
